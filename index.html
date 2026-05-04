@@ -3,93 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurolaunch.com - Neurodiversity Resources, Tools, and Community</title>
-    <meta name="description" content="Neurolaunch.com is a platform for neurodivergent individuals offering resources on ADHD, autism, dyslexia, and other neurological differences. Tools, community, and evidence-based guidance.">
+    <title>Neurolaunch.com - Neuroscience, Psychology, and Mental Health Resources</title>
+    <meta name="description" content="Neurolaunch.com covers neuroscience, psychology, mental health, ADHD, autism, anxiety, and the brain. Evidence-based articles, tools, and the NeuroPassport autism screening.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://leefti.github.io/neurolaunch-site/">
-    <meta property="og:title" content="Neurolaunch.com - Neurodiversity Resources and Community">
-    <meta property="og:description" content="Resources, tools, and support for neurodivergent individuals. ADHD, autism, dyslexia, and more.">
+    <meta property="og:title" content="Neurolaunch.com - Neuroscience and Mental Health Resources">
+    <meta property="og:description" content="Evidence-based neuroscience, psychology, and mental health articles. ADHD, autism, anxiety, the brain, and more.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://leefti.github.io/neurolaunch-site/">
     <style>
+        :root {
+            --primary: #4c1d95;
+            --accent: #8b5cf6;
+            --accent-light: #ede9fe;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #faf5ff;
+            --card-bg: #ffffff;
+            --border: #ddd6fe;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.7;
-            background: #fafafa;
-        }
-        header {
-            background: linear-gradient(135deg, #6a0dad, #9b59b6);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 { font-size: 2.4rem; margin-bottom: 12px; }
-        header p { font-size: 1.15rem; opacity: 0.9; max-width: 620px; margin: 0 auto; }
-        main { max-width: 780px; margin: 0 auto; padding: 40px 20px 60px; }
-        h2 { font-size: 1.5rem; margin: 36px 0 16px; color: #6a0dad; }
-        h3 { font-size: 1.2rem; margin: 24px 0 10px; color: #4a0e78; }
-        p { margin-bottom: 16px; color: #333; }
-        ul { margin: 0 0 20px 24px; }
-        li { margin-bottom: 8px; color: #333; }
-        a { color: #6a0dad; text-decoration: none; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { color: var(--primary); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
-        .cta {
-            background: linear-gradient(135deg, #6a0dad, #9b59b6);
+
+        .hero {
+            background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 24px 60px;
+            text-align: center;
+        }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: var(--accent-light); font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.15rem; opacity: 0.85; max-width: 580px; margin: 0 auto; }
+
+        .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 48px 0; }
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .section-sub { color: var(--text-light); margin-bottom: 28px; }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .card:hover { box-shadow: 0 4px 20px rgba(76,29,149,0.1); transform: translateY(-2px); }
+        .card h3 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 12px; }
+        .card a { font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+
+        .content-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
+        .content-block h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        .content-block p { margin-bottom: 14px; }
+
+        .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
+        .link-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; }
+        .link-item a { font-weight: 600; }
+
+        .feature-box {
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            color: white;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .feature-box h2 { font-size: 1.4rem; margin-bottom: 12px; }
+        .feature-box p { opacity: 0.85; margin-bottom: 16px; }
+        .feature-box a { color: var(--accent-light); font-weight: 700; font-size: 1.05rem; }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            border-radius: 8px;
+            padding: 48px 24px;
+            border-radius: 16px;
+            margin: 32px 0;
         }
-        .cta a { color: #e8d5f5; font-size: 1.2rem; font-weight: 600; }
-        footer { text-align: center; padding: 30px; color: #888; font-size: 0.85rem; }
+        .cta-banner h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+        .cta-banner p { opacity: 0.8; margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); font-weight: 700; padding: 14px 32px; border-radius: 8px; font-size: 1rem; text-decoration: none; }
+        .cta-btn:hover { background: var(--accent-light); text-decoration: none; }
+
+        footer { text-align: center; padding: 40px 24px; color: var(--text-light); font-size: 0.8rem; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
-    <header>
+    <div class="hero">
+        <div class="hero-badge">Neuroscience &amp; Psychology</div>
         <h1>Neurolaunch.com</h1>
-        <p>A platform built for neurodivergent minds. Resources, tools, and community for people who think differently.</p>
-    </header>
-    <main>
-        <h2>Understanding Neurodiversity</h2>
-        <p>Neurodiversity is the concept that neurological differences are natural variations in the human genome rather than deficits to be fixed. Conditions like ADHD, autism spectrum disorder, dyslexia, dyspraxia, and Tourette syndrome represent different ways the brain processes information, each with distinct strengths and challenges.</p>
-        <p>The neurodiversity movement advocates for acceptance, accommodation, and leveraging these differences rather than treating them purely as disorders. This paradigm shift is transforming education, workplace culture, and mental health support worldwide.</p>
+        <p>Evidence-based articles on neuroscience, psychology, mental health, and the brain. Written by experts, reviewed by clinicians.</p>
+    </div>
 
-        <h2>Conditions We Cover</h2>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Explore Topics</div>
+            <div class="section-sub">In-depth coverage across neuroscience, mental health, and psychological well-being.</div>
 
-        <h3>ADHD (Attention Deficit Hyperactivity Disorder)</h3>
-        <p>ADHD affects approximately 8-10% of children and 4-5% of adults worldwide. Characterized by differences in attention regulation, impulse control, and executive function, ADHD also brings strengths in creativity, hyperfocus on areas of interest, and dynamic thinking. Effective management combines behavioral strategies, environmental design, and sometimes medication to help individuals thrive in their personal and professional lives.</p>
-
-        <h3>Autism Spectrum Disorder (ASD)</h3>
-        <p>Autism is a developmental condition affecting how people perceive and interact with the world. The spectrum encompasses a wide range of experiences, from individuals who need significant daily support to those who navigate mainstream environments with specific accommodations. Common traits include intense focus on specific interests, preference for routine, and different approaches to social communication.</p>
-
-        <h3>Dyslexia</h3>
-        <p>Dyslexia is a learning difference that primarily affects reading and language processing. It occurs in people of all intelligence levels and is estimated to affect 5-17% of the population. People with dyslexia often excel in spatial reasoning, pattern recognition, and creative problem-solving. Early identification and specialized reading instruction dramatically improve outcomes.</p>
-
-        <h3>Other Neurological Differences</h3>
-        <p>Neurolaunch.com also covers dyscalculia (mathematics processing differences), dyspraxia (motor coordination and planning), Tourette syndrome (tic disorders), sensory processing differences, and giftedness. Each condition has its own profile of strengths, challenges, and evidence-based strategies for support.</p>
-
-        <h2>What Neurolaunch.com Offers</h2>
-        <ul>
-            <li><strong>Evidence-based articles</strong> covering research, diagnosis, treatment options, and daily living strategies</li>
-            <li><strong>Practical tools</strong> including organization systems, sensory management techniques, and productivity frameworks designed for neurodivergent minds</li>
-            <li><strong>Workplace resources</strong> for both neurodivergent employees and employers seeking to build inclusive environments</li>
-            <li><strong>Educational guides</strong> for parents, teachers, and caregivers supporting neurodivergent children and students</li>
-            <li><strong>Community connection</strong> linking people with shared experiences across the neurodiversity spectrum</li>
-        </ul>
-
-        <h2>Why Neurodiversity Matters</h2>
-        <p>Organizations that embrace neurodiversity gain access to cognitive diversity that drives innovation. Research from Harvard Business Review and Deloitte shows that neurodiverse teams can be 30% more productive than neurotypical ones when properly supported. Companies like SAP, Microsoft, and JPMorgan Chase have launched dedicated neurodiversity hiring programs, recognizing the competitive advantage these different thinking styles provide.</p>
-
-        <div class="cta">
-            <p>Explore resources built for the way your brain actually works.</p>
-            <p><a href="https://neurolaunch.com">Visit Neurolaunch.com</a></p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>ADHD</h3>
+                    <p>Diagnosis, management strategies, medication options, and practical tools for living with attention deficit hyperactivity disorder.</p>
+                    <a href="https://neurolaunch.com/adhd/">Explore ADHD &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Autism</h3>
+                    <p>Understanding the spectrum, sensory processing, communication strategies, and support resources for autistic individuals and families.</p>
+                    <a href="https://neurolaunch.com/autism/">Explore autism &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Anxiety</h3>
+                    <p>Types of anxiety disorders, evidence-based treatments, coping mechanisms, and the neuroscience behind anxious thinking.</p>
+                    <a href="https://neurolaunch.com/anxiety/">Explore anxiety &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>The Brain</h3>
+                    <p>Neuroanatomy, neuroplasticity, cognitive function, and the latest research on how the brain works and adapts.</p>
+                    <a href="https://neurolaunch.com/the-brain/">Explore the brain &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Mental Health</h3>
+                    <p>Depression, bipolar disorder, PTSD, burnout, and practical approaches to maintaining psychological well-being.</p>
+                    <a href="https://neurolaunch.com/mental-health/">Explore mental health &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Psychology</h3>
+                    <p>Behavioral psychology, cognitive science, social dynamics, personality research, and applied psychological insights.</p>
+                    <a href="https://neurolaunch.com/psychology/">Explore psychology &rarr;</a>
+                </div>
+            </div>
         </div>
-    </main>
+
+        <div class="feature-box">
+            <h2>NeuroPassport Autism Screening</h2>
+            <p>A free, clinically-informed autism screening tool designed to help adults understand their neurological profile.</p>
+            <a href="https://passport.neurolaunch.com/">Take the NeuroPassport Screening &rarr;</a>
+        </div>
+
+        <div class="content-block">
+            <h2>More Topics</h2>
+            <div class="link-grid">
+                <div class="link-item"><a href="https://neurolaunch.com/dopamine/">Dopamine</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/sleep/">Sleep Science</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/stress/">Stress</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/iq/">IQ and Intelligence</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/ocd/">OCD</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/cbt/">CBT</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/happiness/">Happiness</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/attachment/">Attachment</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/therapy/">Therapy</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/ptsd/">PTSD</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/alzheimers/">Alzheimer's</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/burnout/">Burnout</a></div>
+                <div class="link-item"><a href="https://neurolaunch.com/bipolar-disorder/">Bipolar Disorder</a></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>About Neurolaunch.com</h2>
+            <p>Neurolaunch.com is a neuroscience and psychology platform offering evidence-based articles written by subject matter experts and reviewed by clinicians. Covering topics from ADHD and autism to dopamine, sleep science, and cognitive behavioral therapy, the site serves as a trusted resource for anyone looking to understand the brain and mental health better.</p>
+            <p>With a growing library of research-backed content and the NeuroPassport autism screening tool, Neurolaunch.com makes complex neuroscience accessible and actionable.</p>
+        </div>
+
+        <div class="cta-banner">
+            <h2>Understand Your Brain Better</h2>
+            <p>Evidence-based neuroscience and psychology, written for real people.</p>
+            <a href="https://neurolaunch.com" class="cta-btn">Visit Neurolaunch.com</a>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Neurolaunch.com. All rights reserved.</p>
+        <p>&copy; 2026 Neurolaunch.com. All rights reserved. | <a href="https://neurolaunch.com/about/">About</a> | <a href="https://neurolaunch.com/editorial-team/">Editorial Team</a> | <a href="https://neurolaunch.com/contact-us/">Contact</a></p>
     </footer>
 </body>
 </html>
